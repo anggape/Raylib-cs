@@ -1,6 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.Build.NoTargets/3.7.0">
+
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>netstandard1.0</TargetFramework>
     <AssemblyName>Raylib-cs.Native</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
@@ -53,4 +54,5 @@
   <Target Name="BuildNative" BeforeTargets="BeforeBuild" Condition="$(SkipLocalBuild) != true">
     <Exec Command="cmake --build $(IntermediateOutputPath)native --config $(Configuration)" />
   </Target>
+
 </Project>
