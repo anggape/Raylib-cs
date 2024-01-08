@@ -1,0 +1,36 @@
+<Project>
+
+  <Import Project="../Raylib-cs/Build.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RaylibLibName Condition="$([MSBuild]::IsOsPlatform('Windows'))">raylib.lib</RaylibLibName>
+    <RaylibLibName Condition="$([MSBuild]::IsOsPlatform('Linux'))">libraylib.a</RaylibLibName>
+    <RaylibLibName Condition="$([MSBuild]::IsOsPlatform('OSX'))">libraylib.a</RaylibLibName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <NativeLibrary Include="$(MSBuildThisFileDirectory)/bin/$(Configuration)/$(RaylibLibName)" />
+    <DirectPInvoke Include="raylib" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ConfigureArgs Include="-S $(MSBuildThisFileDirectory)" />
+    <ConfigureArgs Include="-B $(MSBuildThisFileDirectory)/obj/$(Configuration)" />
+    <ConfigureArgs Include="-D CMAKE_BUILD_TYPE=$(Configuration)" />
+    <!-- <ConfigureArgs Include="-D BUILD_SHARED_LIBS=ON" /> -->
+    <ConfigureArgs Include="-D RAYLIB_TAG=$(TargetRaylibTag)" />
+    <ConfigureArgs Include="-D RAYLIB_OUTPUT=$(MSBuildThisFileDirectory)/bin/$(Configuration)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <BuildArgs Include="--build $(MSBuildThisFileDirectory)/obj/$(Configuration)" />
+    <BuildArgs Include="--config $(Configuration)" />
+  </ItemGroup>
+
+  <Target Name="BuildNative" BeforeTargets="BeforeBuild" Condition="$(SkipLocalBuild) != true">
+    <Exec Command="cmake @(ConfigureArgs, ' ')" />
+    <Exec Command="cmake @(BuildArgs, ' ')" />
+  </Target>
+
+</Project>

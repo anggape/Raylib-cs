@@ -991,16 +991,16 @@ public static unsafe partial class Raylib
         Color color
     );
 
-    /// <summary>Draw line using cubic bezier curves with 2 control points</summary>
-    [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
-    public static extern void DrawLineBezierCubic(
-        Vector2 startPos,
-        Vector2 endPos,
-        Vector2 startControlPos,
-        Vector2 endControlPos,
-        float thick,
-        Color color
-    );
+    // /// <summary>Draw line using cubic bezier curves with 2 control points</summary>
+    // [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
+    // public static extern void DrawLineBezierCubic(
+    //     Vector2 startPos,
+    //     Vector2 endPos,
+    //     Vector2 startControlPos,
+    //     Vector2 endControlPos,
+    //     float thick,
+    //     Color color
+    // );
 
     /// <summary>Draw lines sequence</summary>
     [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]

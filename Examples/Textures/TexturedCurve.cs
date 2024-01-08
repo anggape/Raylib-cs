@@ -90,14 +90,14 @@ public unsafe class TexturedCurve
     {
         if (showCurve)
         {
-            DrawLineBezierCubic(
-                curveStartPosition,
-                curveEndPosition,
-                curveStartPositionTangent,
-                curveEndPositionTangent,
-                2,
-                Color.BLUE
-            );
+            // DrawLineBezierCubic(
+            //     curveStartPosition,
+            //     curveEndPosition,
+            //     curveStartPositionTangent,
+            //     curveEndPositionTangent,
+            //     2,
+            //     Color.BLUE
+            // );
         }
 
         // Draw the various control points and highlight where the mouse is

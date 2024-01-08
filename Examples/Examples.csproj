@@ -1,4 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="../Raylib-cs.Native/Raylib-cs.Native.props" />
+
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
@@ -23,6 +26,5 @@
 
   <ItemGroup>
     <ProjectReference Include="../Raylib-cs/Raylib-cs.csproj" />
-    <ProjectReference Include="../Raylib-cs.Native/Raylib-cs.Native.csproj" />
   </ItemGroup>
 </Project>
