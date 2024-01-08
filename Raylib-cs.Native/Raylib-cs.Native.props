@@ -13,8 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <NativeLibrary Include="winmm.lib" Condition="$([MSBuild]::IsOsPlatform('Windows'))" />
-    <NativeLibrary Include="user32.lib" Condition="$([MSBuild]::IsOsPlatform('Windows'))" />
+    <NativeLibrary Include="shell32.lib" Condition="$([MSBuild]::IsOsPlatform('Windows'))" />
     <NativeLibrary Include="gdi32.lib" Condition="$([MSBuild]::IsOsPlatform('Windows'))" />
     <NativeLibrary Include="$(MSBuildThisFileDirectory)/bin/$(Configuration)/$(RaylibLibName)" />
     <NativeLibrary Include="$(MSBuildThisFileDirectory)/bin/$(Configuration)/$(GLFWLibName)" />
