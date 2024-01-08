@@ -15,6 +15,9 @@
   <ItemGroup>
     <NativeLibrary Include="$(MSBuildThisFileDirectory)/bin/$(Configuration)/$(RaylibLibName)" />
     <NativeLibrary Include="$(MSBuildThisFileDirectory)/bin/$(Configuration)/$(GLFWLibName)" />
+    <NativeLibrary Include="winmm.lib" />
+    <NativeLibrary Include="user32.lib" />
+    <NativeLibrary Include="gdi32.lib" />
     <DirectPInvoke Include="raylib" />
     <DirectPInvoke Include="glfw" />
   </ItemGroup>
