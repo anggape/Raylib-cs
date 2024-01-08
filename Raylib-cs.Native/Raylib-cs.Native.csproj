@@ -3,7 +3,7 @@
   <Import Project="../Raylib-cs/Build.props" />
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RaylibLibName Condition="$([MSBuild]::IsOsPlatform('Windows'))">raylib.dll</RaylibLibName>
     <RaylibLibName Condition="$([MSBuild]::IsOsPlatform('Linux'))">libraylib.so</RaylibLibName>
     <RaylibLibName Condition="$([MSBuild]::IsOsPlatform('OSX'))">libraylib.dylib</RaylibLibName>
