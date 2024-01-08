@@ -1,0 +1,48 @@
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ${{ matrix.runs-on }}
+    strategy:
+      matrix:
+        runs-on: [ubuntu-latest, macos-latest, windows-latest]
+        include:
+          - runs-on: ubuntu-latest
+            runtime: linux-x64
+            executable: Examples
+            setup: |
+              sudo apt-get update
+              sudo apt-get install \
+                libasound2-dev \
+                libx11-dev \
+                libxrandr-dev \
+                libxi-dev \
+                libgl1-mesa-dev \
+                libglu1-mesa-dev \
+                libxcursor-dev \
+                libxinerama-dev
+          - runs-on: macos-latest
+            runtime: osx-x64
+            executable: Examples
+          - runs-on: windows-latest
+            runtime: win-x64
+            executable: Examples.exe
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+
+      - name: setup ${{ matrix.runtime }}
+        run: ${{ matrix.setup }}
+
+      - name: setup dotnet
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.0.x
+
+      - name: build ${{ matrix.runtime }}
+        run: dotnet publish -c Release -r ${{ matrix.runtime }} Examples
+
+      - name: check executable
+        shell: bash
+        run: |
+          file Examples/bin/Release/net8.0/${{ matrix.runtime }}/publish/${{ matrix.executable }}
