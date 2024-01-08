@@ -7,11 +7,16 @@
     <RaylibLibName Condition="$([MSBuild]::IsOsPlatform('Windows'))">raylib.lib</RaylibLibName>
     <RaylibLibName Condition="$([MSBuild]::IsOsPlatform('Linux'))">libraylib.a</RaylibLibName>
     <RaylibLibName Condition="$([MSBuild]::IsOsPlatform('OSX'))">libraylib.a</RaylibLibName>
+    <GLFWLibName Condition="$([MSBuild]::IsOsPlatform('Windows'))">glfw3.lib</GLFWLibName>
+    <GLFWLibName Condition="$([MSBuild]::IsOsPlatform('Linux'))">libglfw3.a</GLFWLibName>
+    <GLFWLibName Condition="$([MSBuild]::IsOsPlatform('OSX'))">libglfw3.a</GLFWLibName>
   </PropertyGroup>
 
   <ItemGroup>
     <NativeLibrary Include="$(MSBuildThisFileDirectory)/bin/$(Configuration)/$(RaylibLibName)" />
+    <NativeLibrary Include="$(MSBuildThisFileDirectory)/bin/$(Configuration)/$(GLFWLibName)" />
     <DirectPInvoke Include="raylib" />
+    <DirectPInvoke Include="glfw" />
   </ItemGroup>
 
   <ItemGroup>

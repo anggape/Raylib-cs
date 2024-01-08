@@ -19,10 +19,8 @@ fetchcontent_declare(raylib URL https://github.com/raysan5/raylib/archive/refs/t
 fetchcontent_makeavailable(raylib)
 
 set_target_properties(
-    raylib
-    PROPERTIES VERSION ""
-               SOVERSION ""
-               ARCHIVE_OUTPUT_DIRECTORY ${RAYLIB_OUTPUT}
+    raylib glfw
+    PROPERTIES ARCHIVE_OUTPUT_DIRECTORY ${RAYLIB_OUTPUT}
                LIBRARY_OUTPUT_DIRECTORY ${RAYLIB_OUTPUT}
                RUNTIME_OUTPUT_DIRECTORY ${RAYLIB_OUTPUT}
                ARCHIVE_OUTPUT_DIRECTORY_DEBUG ${RAYLIB_OUTPUT}

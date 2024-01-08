@@ -50,3 +50,4 @@ jobs:
         shell: bash
         run: |
           file Examples/bin/Release/net8.0/${{ matrix.runtime }}/publish/${{ matrix.executable }}
+          du -h Examples/bin/Release/net8.0/${{ matrix.runtime }}/publish/${{ matrix.executable }}
