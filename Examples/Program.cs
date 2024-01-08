@@ -183,7 +183,7 @@ class Program
 
     static void RunExamples(ExampleInfo[] examples)
     {
-        var configFlags = Enum.GetValues(typeof(ConfigFlags));
+        var configFlags = Enum.GetValues<ConfigFlags>();
         foreach (var example in examples)
         {
             example?.Main?.Invoke();
