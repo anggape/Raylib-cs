@@ -1,4 +1,6 @@
 on:
+  push:
+    branches: native-aot-experiment
   workflow_dispatch:
 jobs:
   build:
